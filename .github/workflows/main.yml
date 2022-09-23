@@ -31,3 +31,9 @@ jobs:
     steps:
       - name: Deploy script
         run: echo Deploying system
+  endToEnd:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Run a Postman runner with defined scripts
+        run: echo Running Postman
