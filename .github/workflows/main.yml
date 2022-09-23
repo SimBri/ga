@@ -25,7 +25,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-  deploy:
+  deploy: 
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy script
