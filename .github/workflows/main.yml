@@ -34,7 +34,7 @@ jobs:
         run: echo Deploying system
   endToEnd:
     name: End To End Tests
-    needs: deploy
+    needs: deployStaging
     runs-on: ubuntu-latest
     steps: 
       - name: Run a Postman runner with defined scripts
