@@ -41,6 +41,7 @@ jobs:
         run: echo Running Postman
   deployProduction:
     name: Deploy to productions
+    environment: prod
     needs: endToEnd
     runs-on: ubuntu-latest
     steps:
