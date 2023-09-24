@@ -39,8 +39,8 @@ jobs:
       # Runs a single command using the runners shell
       - name: Npm install pi
         run: | 
-          cd pi;
-          npm install;
+          cd pi
+          npm install
 
       - name: Run pi test
         run: |

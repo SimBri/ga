@@ -10,8 +10,8 @@ const timeOut = setTimeout(timeOutError, TIMEOUT_MS);
 
 function timeOutError(){
   console.error("Button not pressed before timeout");
-  process.exitCode = 1;
   button.unexport();
+  process.exitCode = 1;
 }
 
 if (Gpio.accessible)
