@@ -3,7 +3,7 @@ const button = new Gpio(24, 'in', 'rising', {debounceTimeout: 1000});
 
 Gpio.accessible ?  console.log("GPIO Present") : console.log("GPIO not present");
 
-const TIMEOUT_MS = 15000;
+const TIMEOUT_MS = 30000;
 const timeOut = setTimeout(timeOutError, TIMEOUT_MS);
 
 
