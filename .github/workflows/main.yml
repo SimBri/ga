@@ -26,7 +26,7 @@ jobs:
           echo 'Flash device'
 
   
-  build:
+  test-lock:
     # The type of runner that the job will run on
     runs-on: self-hosted
     needs: flash
