@@ -13,6 +13,10 @@ function timeOutError(){
   button.unexport();
   process.exitCode = 1;
 }
+let counter = 0;
+setInterval(() => {
+  console.log("Waiting... " + ++counter);
+}, 1000);
 
 if (Gpio.accessible)
 button.watch((err, value) => {
@@ -26,6 +30,8 @@ button.watch((err, value) => {
 
     
 });
+
+
 
 process.on('SIGINT', _ => {
   led.unexport();
