@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Entered the build phase...
+      - echo "hello" > hello.txt
+    finally:
+      - echo This always runs even if the install command fails
+artifacts:
+  files:
+    - hello.txt
+  discard-paths: yes
+  # secondary-artifacts:
+  #   artifact1:
+  #     files:
+  #       - target/artifact-1.0.jar
+  #     discard-paths: yes
+  #   artifact2:
+  #     files:
+  #       - target/artifact-2.0.jar
+  #     discard-paths: yes
