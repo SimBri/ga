@@ -1,8 +1,9 @@
 name: Labelling
 
 on:
-  label:
-    types: [created, deleted]
+  push:
+    tags:
+      - v1.**
     
 jobs:
   log:
