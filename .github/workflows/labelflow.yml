@@ -2,6 +2,7 @@ name: Labelling
 
 on:
   label:
+    types: [created, deleted]
     
 jobs:
   log:
@@ -12,5 +13,3 @@ jobs:
 
       - name: Log context
         run: echo ${{ github }}
-
-        
