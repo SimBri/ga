@@ -1,0 +1,14 @@
+name: Labelling
+
+on:
+  label:
+    
+jobs:
+  log:
+    runs-on: unbuntu-latest
+    steps:
+      - name: Log that the workflow started
+        run: echo 'started'
+
+      - name: Log context
+        run: echo ${{ github }}
