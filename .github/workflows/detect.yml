@@ -11,6 +11,8 @@ jobs:
         with:
           fetch-depth: 2
 
+      - run: pwd
+
       - name: Detect and Tag New Version
         uses: salsify/action-detect-and-tag-new-version@v2.0.3
         with: 
