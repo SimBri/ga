@@ -19,5 +19,5 @@ jobs:
         uses: salsify/action-detect-and-tag-new-version@v2.0.3
         with: 
           version-command: |
-            cat current-version.txt
+            grep  -Poi  '(?<=#define FIRMWARE_VERSION ")(\d*\.\d*\.\d*)' version/common.h
             
