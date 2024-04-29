@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <zephyr/sys/printk.h>
 
-#define FIRMWARE_VERSION "0.2.33"
+#define FIRMWARE_VERSION "0.2.34"
 //extern char name[];
 extern char imsi[];
 /**
