@@ -1,0 +1,17 @@
+name: Release and Pre-release
+
+on:
+  release:
+    types: [released, prereleased]
+
+jobs:
+  prerelease:
+    name: Pre-Release
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Prerelease
+  release: 
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Release
