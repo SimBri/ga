@@ -17,7 +17,25 @@ jobs:
 
       - name: Detect and Tag New Version
         uses: salsify/action-detect-and-tag-new-version@v2.0.3
+        id: version
         with: 
           version-command: |
             grep  -Poi  '(?<=#define FIRMWARE_VERSION ")(\d*\.\d*\.\d*)' version/common.h
+      
+      - name: test condition
+        if: steps.version.outputs.tag != null
+        run: echo Tag was created
+
+      - name: release
+        if: 
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: true
+          release_name: ${{ steps.version.outputs.current-version }}
+          tag_name: ${{ github.ref }}
+          body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
             
