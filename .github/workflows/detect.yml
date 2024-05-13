@@ -1,4 +1,4 @@
-name: detect
+name: Build, Tag and Pre-Release
 
 on:
   push:
@@ -25,26 +25,26 @@ jobs:
         run: echo Tag was created
 
       
-      - name: release
-        if: steps.version.outputs.tag != null
-        uses: actions/create-release@v1
-        id: create_release
-        with:
-          draft: true
-          prerelease: true
-          release_name: ${{ steps.version.outputs.current-version }}
-          tag_name: ${{ github.ref }}
-          body_path: CHANGELOG.md
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      # - name: release
+      #   if: steps.version.outputs.tag != null
+      #   uses: actions/create-release@v1
+      #   id: create_release
+      #   with:
+      #     draft: true
+      #     prerelease: true
+      #     release_name: ${{ steps.version.outputs.current-version }}
+      #     tag_name: ${{ github.ref }}
+      #     body_path: CHANGELOG.md
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
       
-      - name: upload artifact
-        if: steps.version.outputs.tag != null
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifact.md
-          asset_name: artifact_${{ steps.version.outputs.current-version }}
-          asset_content_type: text/plain
+      # - name: upload artifact
+      #   if: steps.version.outputs.tag != null
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ./artifact.md
+      #     asset_name: artifact_${{ steps.version.outputs.current-version }}
+      #     asset_content_type: text/plain
