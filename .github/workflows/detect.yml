@@ -24,7 +24,11 @@ jobs:
         if: steps.version.outputs.tag != null
         run: echo Tag was created
 
-      
+      - name: release
+        if: steps.version.outputs.tag != null
+        run: |
+          gh release create -t "${INPUT_TITLE}" "$(date +%Y%m%d%H%M%S)" --generate-notes
+
       # - name: release
       #   if: steps.version.outputs.tag != null
       #   uses: actions/create-release@v1
