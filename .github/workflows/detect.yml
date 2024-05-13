@@ -26,6 +26,8 @@ jobs:
 
       - name: release
         if: steps.version.outputs.tag != null
+        env: 
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh release create -t "${INPUT_TITLE}" "$(date +%Y%m%d%H%M%S)" --generate-notes
 
