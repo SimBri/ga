@@ -29,7 +29,7 @@ jobs:
         env: 
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create -t "${INPUT_TITLE}" "$(date +%Y%m%d%H%M%S)" --generate-notes
+          gh release create -t "${{ steps.version.outputs.tag }}" --generate-notes --prerelease
 
       # - name: release
       #   if: steps.version.outputs.tag != null
