@@ -1,19 +1,26 @@
 name: Release
 
+# Only run when a release is created: Change the pre-release to release and this flow should run.
+
 on:
-  release:
+  release: 
+    types:
+    - released
 
 jobs:
-  prerelease:
-    name: Pre-Release
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo Prerelease
   release: 
     name: Release
     runs-on: ubuntu-latest
     steps:
-      - run: echo Release
+      - run: echo Release to production
+      
+      - name: Download assets
+        uses: robinraju/release-downloader@v1.10
+        with:
+          repository: ${{ github.repository }}
+          tag: ${{ github.ref_name }}
+          fileName: 'README.md'
+  
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
@@ -21,24 +28,3 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        run: echo "$MATRIX_CONTEXT"  
-  
