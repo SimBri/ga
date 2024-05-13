@@ -1,8 +1,7 @@
-name: Release and Pre-release
+name: Release
 
 on:
   release:
-    types: [published]
 
 jobs:
   prerelease:
