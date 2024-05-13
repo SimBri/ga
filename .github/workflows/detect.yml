@@ -29,7 +29,7 @@ jobs:
         env: 
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create -t "${{ steps.version.outputs.tag }}" "${{ steps.version.outputs.tag }}"  --generate-notes README.md
+          gh release create -t "${{ steps.version.outputs.tag }}" "${{ steps.version.outputs.tag }}"  --generate-notes --prerelease README.md
   dump_contexts_to_log:
     runs-on: ubuntu-latest
     steps:
