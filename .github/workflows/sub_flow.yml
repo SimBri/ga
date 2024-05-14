@@ -1,8 +1,9 @@
 name: Build
+
 on:
   workflow_call:
     inputs:    
-      fake-build:
+      fake:
         type: boolean
         required: true
       
