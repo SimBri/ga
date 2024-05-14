@@ -24,12 +24,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Variables Test
     steps:
-      - id: job
+      - id: job-id
         run: |
           JOB_ID=1222333444
           echo "job-id=$JOB_ID" >> "$GITHUB_OUTPUT"
 
       - run: |
-          JOB_ID_INN=${{ steps.job.outputs.job-id}}
+          JOB_ID_INN=${{ steps.job-id.outputs.job-id}}
           echo $JOB_ID_INN
           echo $JOB_ID
