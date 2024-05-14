@@ -38,13 +38,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
       
-      - name: upload artifact
-        if: steps.version.outputs.tag != null
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./artifact.md
-          asset_name: artifact_${{ steps.version.outputs.current-version }}
-          asset_content_type: text/plain
+      ##https://github.com/softprops/action-gh-release
+      # - name: upload artifact
+      #   if: steps.version.outputs.tag != null
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ github.token }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #     asset_path: ./artifact.md
+      #     asset_name: artifact_${{ steps.version.outputs.current-version }}
+      #     asset_content_type: text/plain
