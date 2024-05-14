@@ -13,11 +13,11 @@ jobs:
     steps: 
       - uses: actions/checkout@v4
 
-      - name: Fake the build.
+      - name: Simulating build
         if: inputs.simulate-build == true
         run: echo "Fake build"
       
-      - name: Do real build
+      - name: Real Build
         if: inputs.simulate-build == false
         run: echo "Real build"
       
