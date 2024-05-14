@@ -19,3 +19,10 @@ jobs:
       - name: Reacts on boolean
         if: ${{ env.is-connected == 'true' }}
         run: echo "Is true"
+
+  variable_test:
+    runs-on: unbuntu-lastes
+    name: Variables Test
+    steps:
+      - run: JOB_ID=12345
+      - run: echo $JOB_ID
