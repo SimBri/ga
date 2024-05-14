@@ -21,7 +21,7 @@ jobs:
         run: echo "Is true"
 
   variable_test:
-    runs-on: unbuntu-lastes
+    runs-on: ubuntu-latest
     name: Variables Test
     steps:
       - run: JOB_ID=12345

@@ -21,6 +21,5 @@ jobs:
         if: inputs.simulate-build == false
         run: echo "Real build"
 
-      - run: JOB_ID=12345
-      - run: echo $JOB_ID
+      
       
