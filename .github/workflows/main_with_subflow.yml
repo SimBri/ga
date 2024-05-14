@@ -9,4 +9,13 @@ jobs:
     uses: ./.github/workflows/sub_flow.yml
     with:
       simulate-build: true
-      
+  
+  boolean_test:
+    runs-on: ubuntu-latest
+    name: Boolean Test
+    env: 
+      is-connected: true
+    steps:
+      - name: Reacts on boolean
+        if: $ {{ env.is-connected == true }}
+        run: echo "Is true"
