@@ -16,4 +16,4 @@ jobs:
     name: Run sub
     uses: ./.github/workflows/sub_flow.yml
     with:
-      fake: true
+      fake: false
