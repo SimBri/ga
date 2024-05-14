@@ -1,0 +1,19 @@
+name: Main with subflow
+
+on:
+  - push
+
+jobs:
+  dump_contexts_to_log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
+  build:
+    name: Run sub
+    uses: ./.github/workflows/sub_flow.yml
+    with:
+      fake-build: true
