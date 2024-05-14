@@ -24,8 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Variables Test
     steps:
-      - run: |
-          SET JOB_ID=12345
-          echo $JOB_ID
+      - id: job
+        run: |
+          JOB_ID=1222333444
+          echo "job-id=$JOB_ID" >> "$GITHUB_OUTPUT"
 
-      - run: echo $JOB_ID
+      - run: |
+          JOB_ID_INN=${{ steps.job.outputs.job-id}}
+          echo $JOB_ID
