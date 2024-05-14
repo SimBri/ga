@@ -14,10 +14,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Fake build true
-        if: ${{ inputs.fake == true }}
+        if: inputs.fake
         run: echo "Fake build"
       
       - name: Fake build false
-        if: ${{ inputs.fake == false }}
+        if: inputs.fake == false
         run: echo "Real build"
       
