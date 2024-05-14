@@ -17,5 +17,5 @@ jobs:
       is-connected: true
     steps:
       - name: Reacts on boolean
-        if: $ {{ env.is-connected == true }}
+        if: ${{ env.is-connected == true }}
         run: echo "Is true"
