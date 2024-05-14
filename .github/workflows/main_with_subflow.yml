@@ -24,5 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Variables Test
     steps:
-      - run: JOB_ID=12345
+      - run: |
+        JOB_ID=12345
+        echo $JOB_ID
+        
       - run: echo $JOB_ID
